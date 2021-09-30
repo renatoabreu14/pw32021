@@ -1,0 +1,29 @@
+Filmes
+	id
+	titulo
+	sinopse
+	ano
+	pais
+	genero
+	diretor
+	trailer
+	duracao
+	capa
+
+Genero
+	id
+	descricao
+
+Diretor
+	id
+	nome
+
+Pais
+	id
+	nome
+	sigla
+	idioma
+
+Idioma
+	id
+	descricao

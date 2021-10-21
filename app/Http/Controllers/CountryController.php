@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Director;
+use App\Models\Country;
+use App\Models\Language;
 use Illuminate\Http\Request;
 
-class DirectorController extends Controller
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class DirectorController extends Controller
      */
     public function index()
     {
-        $directors = Director::all();
-        return view('admin.directors.index', compact('directors'));
+        $countries = Country::all();
+        return view('admin.countries.index', compact('countries'));
     }
 
     /**
@@ -25,7 +26,8 @@ class DirectorController extends Controller
      */
     public function create()
     {
-        return view('admin.directors.create');
+        $languages = Language::all();
+        return view('admin.countries.create', compact('languages'));
     }
 
     /**
@@ -36,54 +38,52 @@ class DirectorController extends Controller
      */
     public function store(Request $request)
     {
-        Director::create($request->all());
-        return redirect()->route('directors.index');
+        Country::create($request->all());
+        return redirect()->route('countries.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Director  $director
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function show(Director $director)
+    public function show(Country $country)
     {
-        return abort(404);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Director  $director
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function edit(Director $director)
+    public function edit(Country $country)
     {
-        return view('admin.directors.edit', compact('director'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Director  $director
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Director $director)
+    public function update(Request $request, Country $country)
     {
-        $director->update($request->all());
-        return redirect()->route('directors.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Director  $director
+     * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Director $director)
+    public function destroy(Country $country)
     {
-        $director->delete();
-        return redirect()->route('directors.index');
+        //
     }
 }

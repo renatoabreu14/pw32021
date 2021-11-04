@@ -35,5 +35,6 @@ Route::prefix('admin')->group(function (){
     Route::resource('directors', \App\Http\Controllers\DirectorController::class);
     Route::resource('languages', \App\Http\Controllers\LanguageController::class);
     Route::resource('countries', \App\Http\Controllers\CountryController::class);
+    Route::resource('movies', \App\Http\Controllers\MovieController::class);
 });
 

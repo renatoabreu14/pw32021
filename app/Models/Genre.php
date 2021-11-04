@@ -10,4 +10,8 @@ class Genre extends Model
     use HasFactory;
 
     protected $fillable = ['description'];
+
+    public function movies(){
+        return $this->hasMany(Movie::class);
+    }
 }

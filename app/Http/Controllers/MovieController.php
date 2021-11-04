@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
-use App\Models\Language;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = Country::all();
-        return view('admin.countries.index', compact('countries'));
+        $movies = Movie::all();
+        return view('admin.movies.index', compact('movies'));
     }
 
     /**
@@ -26,8 +25,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        $languages = Language::all();
-        return view('admin.countries.create', compact('languages'));
+        //
     }
 
     /**
@@ -38,55 +36,51 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        Country::create($request->all());
-        return redirect()->route('countries.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Country  $country
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show(Country $country)
+    public function show(Movie $movie)
     {
-        return abort(404);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Country  $country
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Country $country)
+    public function edit(Movie $movie)
     {
-        $languages = Language::all();
-        return view('admin.countries.edit', compact('country', 'languages'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Country  $country
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(Request $request, Movie $movie)
     {
-        $country->update($request->all());
-        return redirect()->route('countries.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Country  $country
+     * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy(Movie $movie)
     {
-        $country->delete();
-        return redirect()->route('countries.index');
+        //
     }
 }

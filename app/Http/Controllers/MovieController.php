@@ -7,6 +7,7 @@ use App\Models\Director;
 use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MovieController extends Controller
 {
@@ -92,7 +93,10 @@ class MovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        $countries = Country::all();
+        $genres = Genre::all();
+        $directors = Director::all();
+        return view('admin.movies.edit', compact('countries', 'genres', 'directors', 'movie'));
     }
 
     /**
@@ -104,7 +108,8 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-        //
+        //se for enviado algum arquivo de capa pelo formulario entao deve-se excluir o arquivo no servidor, fazer o upload do novo arquivo e atualizar os dados no banco
+        //caso nao seja enviado um novo arquivo de capa somente atualize os dados do banco.
     }
 
     /**
@@ -115,6 +120,9 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        //
+        $image_path = storage_path('app/movies/').$movie->cover;
+        unlink($image_path);
+        $movie->delete();
+        return redirect()->route('movies.index')->with('message', 'Registro excluido com sucesso');
     }
 }

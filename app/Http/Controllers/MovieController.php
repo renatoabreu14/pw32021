@@ -49,7 +49,7 @@ class MovieController extends Controller
             $name = uniqid(date('HisYmd'));
             $extesion = $request->cover->extension();
             $nameFile = "{$name}.{$extesion}";
-            $upload = $request->cover->storeAs('movies', $nameFile);
+            $upload = $request->cover->storeAs('public/movies', $nameFile);
             if(!$upload){
                 return redirect()
                         ->back()
@@ -82,7 +82,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return view('admin.movies.show', compact('movie'));
     }
 
     /**
@@ -120,7 +120,7 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        $image_path = storage_path('app/movies/').$movie->cover;
+        $image_path = storage_path('app/public/movies/').$movie->cover;
         unlink($image_path);
         $movie->delete();
         return redirect()->route('movies.index')->with('message', 'Registro excluido com sucesso');

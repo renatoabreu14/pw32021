@@ -13,3 +13,11 @@
 .form-group{
     padding-bottom: 8px;
 }
+
+.card-title{
+    font-size: 35px;
+}
+
+.card-text{
+    text-align: justify;
+}

@@ -38,3 +38,5 @@ Route::prefix('admin')->group(function (){
     Route::resource('movies', \App\Http\Controllers\MovieController::class);
 });
 
+Route::get('vitrine', [\App\Http\Controllers\VitrineController::class, 'index']);
+Route::get('vitrine/{movie}', [\App\Http\Controllers\VitrineController::class, 'showmovie'])->name('vitrine.showmovie');
